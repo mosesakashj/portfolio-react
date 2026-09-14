@@ -1,0 +1,68 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/inter';
+@import '@fontsource/jetbrains-mono';
+
+@custom-variant light (&:where(.light, .light *));
+
+@theme {
+  --font-sans: 'InterVariable', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+
+  --color-ink-950: #0a0a0b;
+  --color-ink-900: #131316;
+  --color-ink-800: #1c1c21;
+  --color-ink-700: #2a2a31;
+  --color-ink-600: #3f3f46;
+  --color-ink-500: #6b6b74;
+  --color-ink-400: #8a8a93;
+  --color-ink-300: #b5b5bc;
+  --color-ink-200: #d8d8dc;
+  --color-ink-100: #eeeef0;
+  --color-ink-50: #fafafa;
+
+  --color-accent-600: #0d9488;
+  --color-accent-500: #14b8a6;
+  --color-accent-400: #2dd4bf;
+
+  --color-signal-500: #f59e0b;
+  --color-signal-400: #fbbf24;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+:root.light {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  @apply bg-ink-950 text-ink-100 antialiased;
+}
+
+:root.light body {
+  @apply bg-ink-50 text-ink-900;
+}
+
+.skip-link {
+  @apply bg-accent-600 fixed top-0 left-0 z-50 -translate-y-full px-4 py-2 text-white focus:translate-y-0;
+}
